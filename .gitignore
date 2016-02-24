@@ -1,0 +1,9 @@
+.DS_Store
+node_modules
+npm-debug.log
+reports
+browserstack_reports
+Nightwatch/helpers/.secret.js
+Galen/secret.test
+Galen/scripts/login.js
+Nightwatch/scripts/globals.js

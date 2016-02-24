@@ -1,0 +1,17 @@
+{
+  "name": "layout",
+  "version": "1.0.0",
+  "scripts": {
+    "all": "galen test configuration.test --htmlreport reports",
+    "home-header": "galen test configuration.test --htmlreport reports --groups header",
+    "bs-desktop": "galen test browserstack-configuration.test --htmlreport browserstack_reports --groups home-desktop --parallel-tests 2",
+    "bs-tablet": "galen test browserstack-configuration.test --htmlreport browserstack_reports --groups home-tablet --parallel-tests 2",
+    "bs-mobile": "galen test browserstack-configuration.test --htmlreport browserstack_reports --groups home-mobile --parallel-tests 2",
+    "sl-desktop": "galen test saucelabs-configuration.test --htmlreport browserstack_reports --groups home-desktop --parallel-tests 8",
+    "sl-tablet": "galen test saucelabs-configuration.test --htmlreport browserstack_reports --groups home-tablet --parallel-tests 8",
+    "sl-mobile": "galen test saucelabs-configuration.test --htmlreport browserstack_reports --groups home-mobile --parallel-tests 8",
+    "report": "test -d ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Layout || mkdir -p ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Layout && cp -R reports ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Layout && rm -rf reports/*",
+    "bs-report": "test -d ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Layout || mkdir -p ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Layout && rm -rf ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Layout/browserstack_reports/* && cp -R browserstack_reports ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Layout && rm -rf browserstack_reports/*"
+  },
+  "license": "ISC"
+}

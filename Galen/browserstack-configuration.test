@@ -1,0 +1,51 @@
+@@ import secret.test
+
+@@ set
+  name "Testing Home Page Layout of Project"
+  base_url http://samples.galenframework.com/tutorial1/tutorial1.html
+  browser_size "1280x1024"
+
+@@ table devices-desktop
+      | deviceName       | tags       | gridArgs |
+      | Win-Chrome 46    | desktop    |  --size ${browser_size} --dc.browser Chrome --dc.os Windows --dc.os_version 10 --dc.browser_version 46.0 --dc.resolution ${browser_size} --dc.name ${name} --dc.browserstack.debug true   |
+      | Mac-Chrome 46    | desktop    |  --size ${browser_size} --dc.browser Chrome --dc.os "OS X" --dc.os_version "El Capitan" --dc.browser_version 46.0 --dc.resolution ${browser_size} --dc.name ${name} --dc.browserstack.debug true        |
+      | Win-Firefox 42   | desktop    |  --size ${browser_size} --dc.browser Firefox --dc.os Windows --dc.os_version 10 --dc.browser_version 42.0 --dc.resolution ${browser_size} --dc.name ${name} --dc.browserstack.debug true  |
+      | Mac-Firefox 42   | desktop    |  --size ${browser_size} --dc.browser Firefox --dc.os "OS X" --dc.os_version "El Capitan" --dc.browser_version 42.0 --dc.resolution ${browser_size} --dc.name ${name} --dc.browserstack.debug true       |
+      | Mac-Safari 8     | desktop    |  --size ${browser_size} --dc.browser Safari --dc.os "OS X" --dc.os_version "El Capitan" --dc.browser_version 9.0 --dc.resolution ${browser_size} --dc.name ${name} --dc.browserstack.debug true         |
+      | Win8-IE 10       | desktop    |  --size ${browser_size} --dc.browser IE --dc.os Windows --dc.os_version 8 --dc.browser_version 10.0 --dc.resolution ${browser_size} --dc.name ${name} --dc.browserstack.debug true             |
+      | Win8.1-IE 11     | desktop    |  --size ${browser_size} --dc.browser IE --dc.os Windows --dc.os_version 8.1 --dc.browser_version 11.0 --dc.resolution ${browser_size} --dc.name ${name} --dc.browserstack.debug true             |
+      #| Win10-Edge       | desktop    |  --size ${browser_size} --dc.browser Edge --dc.os Windows --dc.os_version 10 --dc.browser_version 12.0 --dc.resolution ${browser_size} --dc.name ${name} --dc.browserstack.debug true          |
+
+
+@@ table devices-tablet
+      | deviceName       | tags       | gridArgs |
+      | iPad-Air-Portrait| tablet     |  --dc.browserName iPad --dc.device "iPad Air" --dc.platform "MAC" --dc.name ${name} --dc.browserstack.debug true                          |
+      | Nexus7-Portrait  | tablet     |  --dc.browserName android --dc.device  "Samsung Galaxy Tab 4 10.1" --dc.platform "ANDROID" --dc.name ${name} --dc.browserstack.debug true |
+
+
+@@ table devices-mobile
+      | deviceName       | tags       | gridArgs |
+      | iPhone6-Portrait | mobile    |  --dc.browserName iPhone --dc.device "iPhone 6" --dc.platform "MAC" --dc.name ${name} --dc.browserstack.debug true              |
+      | Nexus4-Portrait  | mobile    |  --dc.browserName android --dc.deviceName "Google Nexus 5" --dc.platform ANDROID --dc.name ${name} --dc.browserstack.debug true |
+
+
+@@ parameterized using devices-desktop
+@@ groups home-desktop
+Header on Home Page on ${deviceName}
+    selenium grid ${saucelabs_url} --page ${base_url} ${gridArgs}
+        #run scripts/login-template.js
+        check specs/Home/header.gspec
+
+@@ parameterized using devices-tablet
+@@ groups home-tablet
+Header on Home Page on ${deviceName}
+    selenium grid ${saucelabs_url} --page ${base_url} ${gridArgs}
+        #run scripts/login-template.js
+        check specs/Home/header.gspec
+
+@@ parameterized using devices-mobile
+@@ groups home-mobile
+Header on Home Page on ${deviceName}
+    selenium grid ${saucelabs_url} --page ${base_url} ${gridArgs}
+        #run scripts/login-template.js
+        check specs/Home/header.gspec

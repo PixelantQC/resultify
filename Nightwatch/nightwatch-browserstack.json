@@ -1,0 +1,169 @@
+{
+  "src_folders" : ["tests"],
+  "output_folder" : "browserstack_reports",
+  "custom_commands_path" : "",
+  "custom_assertions_path" : "",
+  "page_objects_path" : "",
+  "globals_path" : "./scripts/globals.js",
+
+  "selenium" : {
+    "start_process" : false,
+    "host" : "hub.browserstack.com",
+    "port" : 80
+  },
+
+  "test_settings" : {
+    "default" : {
+      "launch_url" : "http://hub.browserstack.com",
+      "selenium_port"  : 80,
+      "selenium_host"  : "hub.browserstack.com",
+      "silent": true,
+      "javascriptEnabled": true,
+      "acceptSslCerts": true,
+      "username": "${BROWSERSTACK_USER}",
+      "access_key": "${BROWSERSTACK_KEY}",
+      "screenshots" : {
+        "enabled" : false,
+        "path" : ""
+      },
+      "desiredCapabilities": {
+        "browser" : "Chrome",
+        "browserName" : "Chrome",
+        "browser_version" : "47.0",
+        "version" : "47.0",
+        "os" : "Windows",
+        "platform" : "Windows",
+        "os_version" : "10",
+        "resolution" : "1280x1024",
+        "browserstack.debug" : "true"
+      }
+    },
+    "mchrome": {
+      "desiredCapabilities": {
+        "browser" : "Chrome",
+        "browserName" : "Chrome",
+        "browser_version" : "47.0",
+        "version" : "47.0",
+        "os" : "OS X",
+        "platform" : "OS X",
+        "os_version" : "El Capitan",
+        "resolution" : "1280x1024",
+        "browserstack.debug" : "true"
+      }
+    },
+    "wfirefox": {
+      "desiredCapabilities": {
+        "browser" : "Firefox",
+        "browserName" : "Firefox",
+        "browser_version" : "42.0",
+        "version" : "42.0",
+        "os" : "Windows",
+        "platform" : "Windows",
+        "os_version" : "10",
+        "resolution" : "1280x1024",
+        "browserstack.debug" : "true"
+      }
+    },
+    "mfirefox": {
+      "desiredCapabilities": {
+        "browser" : "Firefox",
+        "browserName" : "Firefox",
+        "browser_version" : "42.0",
+        "version" : "42.0",
+        "os" : "OS X",
+        "platform" : "OS X",
+        "os_version" : "El Capitan",
+        "resolution" : "1280x1024",
+        "browserstack.debug" : "true"
+      }
+    },
+    "safari": {
+      "desiredCapabilities": {
+        "browser" : "Safari",
+        "browserName" : "Safari",
+        "browser_version" : "9.0",
+        "version" : "9.0",
+        "os" : "OS X",
+        "platform" : "OS X",
+        "os_version" : "El Capitan",
+        "resolution" : "1280x1024",
+        "browserstack.debug" : "true"
+      }
+    },
+    "ie10": {
+      "desiredCapabilities": {
+        "browser" : "IE",
+        "browserName" : "IE",
+        "browser_version" : "10.0",
+        "version" : "10.0",
+        "os" : "Windows",
+        "platform" : "Windows",
+        "os_version" : "8",
+        "resolution" : "1280x1024",
+        "browserstack.debug" : "true"
+      }
+    },
+    "ie11": {
+      "desiredCapabilities": {
+        "browser" : "IE",
+        "browserName" : "IE",
+        "browser_version" : "11.0",
+        "version" : "11.0",
+        "os" : "Windows",
+        "platform" : "Windows",
+        "os_version" : "8.1",
+        "resolution" : "1280x1024",
+        "browserstack.debug" : "true"
+      }
+    },
+    "edge": {
+      "desiredCapabilities": {
+        "browser" : "Edge",
+        "browserName" : "Edge",
+        "browser_version" : "12.0",
+        "version" : "12.0",
+        "os" : "Windows",
+        "platform" : "Windows",
+        "os_version" : "10",
+        "resolution" : "1280x1024",
+        "browserstack.debug" : "true"
+      }
+    },
+    "piPad-Air": {
+      "desiredCapabilities": {
+        "browserName" : "iPad",
+        "platform" : "MAC",
+        "device" : "iPad Air",
+        "browserstack.debug" : "true",
+        "version": ""
+      }
+    },
+    "piPhone6": {
+      "desiredCapabilities": {
+        "browserName" : "iPhone",
+        "platform" : "MAC",
+        "device" : "iPhone 6",
+        "browserstack.debug" : "true",
+        "version": ""
+      }
+    },
+    "GalaxyTab10": {
+      "desiredCapabilities": {
+        "browserName" : "android",
+        "platform" : "ANDROID",
+        "device" : "Samsung Galaxy Tab 4 10.1",
+        "browserstack.debug" : "true",
+        "version": ""
+      }
+    },
+    "Nexus5": {
+      "desiredCapabilities": {
+        "browserName" : "android",
+        "platform" : "ANDROID",
+        "device" : "Google Nexus 5",
+        "browserstack.debug" : "true",
+        "version": ""
+      }
+    }
+  }
+}

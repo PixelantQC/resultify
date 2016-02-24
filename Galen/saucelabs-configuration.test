@@ -1,0 +1,51 @@
+@@ import secret.test
+
+@@ set
+  name "Testing Home Page Layout of Project"
+  base_url http://samples.galenframework.com/tutorial1/tutorial1.html
+  browser_size "1280x1024"
+
+@@ table devices-desktop
+    | deviceName       | tags       | gridArgs |
+    | Win-Chrome 46    | desktop    |  --size ${browser_size} --browser chrome --dc.platform "Windows 10" --dc.version 46.0 --dc.screenResolution ${browser_size} --dc.name ${name} |
+    | Mac-Chrome 46    | desktop    |  --size ${browser_size} --browser chrome --dc.platform "OS X 10.10" --dc.version 46.0 --dc.screenResolution ${browser_size} --dc.name ${name} |
+    | Win-Firefox 42   | desktop    |  --size ${browser_size} --browser firefox --dc.platform "Windows 10" --dc.version 42.0 --dc.screenResolution ${browser_size} --dc.name ${name} |
+    | Mac-Firefox 42   | desktop    |  --size ${browser_size} --browser firefox --dc.platform "OS X 10.10" --dc.version 42.0 --dc.screenResolution ${browser_size} --dc.name ${name} |
+    | Mac-Safari 8     | desktop    |  --size ${browser_size} --browser safari --dc.platform "OS X 10.10" --dc.version 8.0 --dc.screenResolution ${browser_size} --dc.name ${name} |
+    | Win8-IE 10       | desktop    |  --size ${browser_size} --browser "internet explorer" --dc.platform "Windows 8" --dc.version 10.0 --dc.screenResolution ${browser_size} --dc.name ${name} |
+    | Win8.1-IE 11     | desktop    |  --size ${browser_size} --browser "internet explorer" --dc.platform "Windows 8.1" --dc.version 11.0 --dc.screenResolution ${browser_size} --dc.name ${name} |
+    #| Win10-Edge       | desktop    |  --size ${browser_size} --browser "microsoftedge" --dc.platform "Windows 10" --dc.version "20.10240" --dc.screenResolution ${browser_size} --dc.name ${name} |
+
+
+@@ table devices-tablet
+    | deviceName       | tags       | gridArgs |
+    | iPad2-Portrait   | tablet     |  --browser iPad --dc.deviceName "iPad 2" --dc.platform "OS X 10.10" --dc.version 9.2 --dc.deviceOrientation portrait --dc.name ${name} |
+    | Nexus7-Portrait  | tablet     |  --browser android --dc.deviceName "Google Nexus 7 HD Emulator" --dc.platform "Linux" --dc.version 4.4 --dc.deviceOrientation portrait --dc.name ${name} |
+
+
+@@ table devices-mobile
+    | deviceName       | tags       | gridArgs |
+    | iPhone6-Portrait | mobile    |  --browser iPhone --dc.deviceName "iPhone 6" --dc.platform "OS X 10.10" --dc.version 9.2 --dc.deviceOrientation portrait --dc.name ${name} |
+    | Nexus4-Portrait  | mobile    |  --browser android --dc.deviceName "LG Nexus 4 Emulator" --dc.platform "Linux" --dc.version 4.4 --dc.deviceOrientation portrait --dc.name ${name} |
+
+
+@@ parameterized using devices-desktop
+@@ groups home-desktop
+Home Page on ${deviceName}
+    selenium grid ${saucelabs_url} --page ${base_url} ${gridArgs}
+        #run scripts/login-template.js
+        check specs/Home/header.gspec
+
+@@ parameterized using devices-tablet
+@@ groups home-tablet
+Home Page on ${deviceName}
+    selenium grid ${saucelabs_url} --page ${base_url} ${gridArgs}
+        #run scripts/login-template.js
+        check specs/Home/header.gspec
+
+@@ parameterized using devices-mobile
+@@ groups home-mobile
+Home Page on ${deviceName}
+    selenium grid ${saucelabs_url} --page ${base_url} ${gridArgs}
+        #run scripts/login-template.js
+        check specs/Home/header.gspec

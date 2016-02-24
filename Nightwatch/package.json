@@ -1,0 +1,39 @@
+{
+  "name": "functional",
+  "version": "1.0.0",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "all": "nightwatch --reporter ./scripts/html-reporter.js",
+    "user-login": "nightwatch -t tests/Login/usernameLogin.js --reporter ./scripts/html-reporter.js",
+    "gmail-login": "nightwatch -t tests/Login/gmailLogin.js --reporter ./scripts/html-reporter.js",
+    "one-cost": "nightwatch -t tests/Cost/oneTimeCost.js --reporter ./scripts/html-reporter.js",
+    "rec-cost": "nightwatch -t tests/Cost/recurringCost.js --reporter ./scripts/html-reporter.js",
+    "bs-desktop": "nightwatch -t tests/Home/search.js -e default,mchrome,mfirefox,wfirefox,safari,ie10,ie11 -c nightwatch-browserstack.json --reporter ./scripts/html-browserstack-reporter.js",
+    "bs-tablet": "nightwatch -t tests/Home/search.js -e piPad-Air,GalaxyTab10 -c nightwatch-browserstack.json --reporter ./scripts/html-browserstack-reporter.js",
+    "sl-desktop": "nightwatch -t tests/Cost/oneTimeCost.js -e default,mchrome,mfirefox,wfirefox,ie10,ie11 -c nightwatch-saucelabs.json --reporter ./scripts/html-browserstack-reporter.js",
+    "sl-default": "nightwatch -t tests/Home/search.js -e default -c nightwatch-saucelabs.json --reporter ./scripts/html-browserstack-reporter.js",
+    "sl-tablet": "nightwatch -t tests/Home/search.js -e piPad2,pNexus7 -c nightwatch-saucelabs.json --reporter ./scripts/html-browserstack-reporter.js",
+    "report": "test -d ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Functional || mkdir -p ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Functional && cp -R reports ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Functional && rm -rf reports/*",
+    "bs-report": "test -d ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Functional || mkdir -p ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Functional && rm -rf ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Functional/browserstack_reports/* && cp -R browserstack_reports ~/Dropbox/AutomatedTests/Project/$(date +%Y-%m-%d)/Functional && rm -rf browserstack_reports/*"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "nightwatch-html-reporter": "^1.0.3",
+    "request": "^2.67.0"
+  },
+  "jscsConfig": {
+    "preset": "google",
+    "validateQuoteMarks": null,
+    "maximumLineLength": 100,
+    "requireCamelCaseOrUpperCaseIdentifiers":
+    {
+      "ignoreProperties": true,
+      "strict": true
+    },
+    "excludeFiles": [
+      "node_modules/**"
+    ]
+  }
+}
